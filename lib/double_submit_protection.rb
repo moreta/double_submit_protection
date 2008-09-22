@@ -15,7 +15,7 @@ module Hervalicious
       def double_submit?
         session_token = session[SESSION_TOKEN_KEY]
         session[SESSION_TOKEN_KEY] = nil
-        request.post? && (session_token != params[TOKEN_FIELD_NAME])
+        (request.post? || request.put?) && (session_token != params[TOKEN_FIELD_NAME])
       end
     end
   end
