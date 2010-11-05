@@ -16,6 +16,9 @@ v1.0
 v1.0.1
 - Use flash in place of session
 
+v1.0.2
+- Support multiple token
+
 Usage Example
 =============
 
@@ -25,12 +28,31 @@ some_view.html.erb
   ... (some form content here)
   <%=double_submit_token %>
 <% end %>
+
+<%= form_for :foo, :url => { :action => "create" } do |f| %>
+  ... (some form content here)
+  <%=double_submit_token 'foo_submit_token' %>
+<% end %>
 ----------------------------------------------------------------------
 
 blah_controller.rb
 ----------------------------------------------------------------------
   def create
     if double_submit?
+      flash[:message] = 'Whoa, hang in there dude...'
+      render :action => :register
+      return
+    end
+
+    # do something here
+  end
+end
+----------------------------------------------------------------------
+
+foo_controller.rb
+----------------------------------------------------------------------
+  def create
+    if double_submit? 'foo_submit_token'
       flash[:message] = 'Whoa, hang in there dude...'
       render :action => :register
       return
