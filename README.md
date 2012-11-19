@@ -49,9 +49,3 @@ def create
   # do something here
 end
 ~~~
-
-# copyright
-
-Copyright (C) 2008 Herval Freire (hervalfreire@gmail.com). No license intended - you are free to duplicate,
-immitate, print this code and shred it to pieces, blog about it, take pictures with it and even say it was
- brilliantly developed by yourself and brag about it.
