@@ -1,3 +1,16 @@
+.idea
+.project
+*.o
+*.lo
+*.la
+.*.rej
+*.rej
+.*~
+*~
+#*#
+.DS_Store
+.settings/
+*.swp
 *.gem
 *.rbc
 .bundle
